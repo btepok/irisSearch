@@ -1,0 +1,155 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <meta charset="UTF-8">
+    <link rel="icon" href="{% static 'aoip_site/icon.ico' %}">
+    <meta name="theme-color" content="#000000">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>_</title>
+    <style>
+        .nameblock {
+            cursor: pointer;
+            transition: 270ms;
+        }
+
+        .nameblock:hover {
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.582);
+        }
+
+        @media only screen and (max-width: 1000px) {
+            body {
+                background-color: lightblue;
+            }
+        }
+    </style>
+</head>
+
+<body style="background: rgb(0, 0, 0); font-family: 'Rubik', sans-serif; font-size: 16px; display: none;" id="bodyMain">
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Что это?</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="catHelp2">
+                    Это небольшая проверка. Я ищу только одного человека в списке. Если это ты, будь добра отвечать
+                    правильно. <br> Автор составлял вопросы достоверно настолько, насколько помнит события.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Хорошо</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p class="text-center mt-3" id="dialog" style="color: rgb(255, 255, 255); font-size: 26px;">&nbsp</p>
+
+    <div class="animate__animated animate__fadeInDown" id="tgLink" style="display: none;">
+
+        <div class="container col-9 col-lg-6 pt-5 mt-5">
+            <div class="row justify-content-center" id="sh" onclick=""
+                style="padding: 10px; border-radius: 7px; color: rgb(36, 211, 255);"><a
+                    href="https://t.me/betepok3">betepok3</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="animate__animated animate__fadeIn" id="namelist">
+        <div class="container col-9 col-lg-6 pt-5 mt-2">
+            <div class="row justify-content-center nameblock" id="sh" onclick="nameClick(this.id)"
+                style="background-color: rgb(63, 63, 63); padding: 10px; border-radius: 7px; color: white;">Анастасия
+            </div>
+        </div>
+
+        <div class="container col-9 col-lg-6 pt-5">
+            <div class="row justify-content-center nameblock" id="animeDeb" onclick="nameClick(this.id)"
+                style="background-color: rgb(63, 63, 63); padding: 10px; border-radius: 7px; color: white;">Игорь</div>
+        </div>
+
+        <div class="container col-9 col-lg-6 pt-5">
+            <div class="row justify-content-center nameblock" id="iris" onclick="nameClick(this.id)"
+                style="background-color: rgb(63, 63, 63); padding: 10px; border-radius: 7px; color: white;">Ирина</div>
+        </div>
+
+        <div class="container col-9 col-lg-6 pt-5">
+            <div class="row justify-content-center nameblock" id="hz" onclick="nameClick(this.id)"
+                style="background-color: rgb(63, 63, 63); padding: 10px; border-radius: 7px; color: white;">Владислав
+            </div>
+        </div>
+
+        <div class="container col-9 col-lg-6 pt-5">
+            <div class="row justify-content-center nameblock" id="bestFriend" onclick="nameClick(this.id)"
+                style="background-color: rgb(63, 63, 63); padding: 10px; border-radius: 7px; color: white;">Даниил</div>
+
+            <div class="row justify-content-center animate__animated animate__fadeInDown" id="attempts"
+                style="color: rgb(161, 161, 161); font-size: 14px; padding-top: 30px; display: none;"></div>
+        </div>
+    </div>
+
+    <div id="qstlist" class="animate__animated animate__fadeIn" style="display: none;">
+        <div class="container col-9 col-lg-6 pt-5 mt-5">
+            <div class="row justify-content-center nameblock" id="qst1" onclick="irisRecognize(firstChild.textContent)"
+                style="background-color: rgb(63, 63, 63); padding: 10px; border-radius: 7px; color: white;"></div>
+        </div>
+
+        <div class="container col-9 col-lg-6 pt-5">
+            <div class="row justify-content-center nameblock" id="qst2" onclick="irisRecognize(firstChild.textContent)"
+                style="background-color: rgb(63, 63, 63); padding: 10px; border-radius: 7px; color: white;"></div>
+        </div>
+
+        <div class="container col-9 col-lg-6 pt-5">
+            <div class="row justify-content-center nameblock" id="qst3" onclick="irisRecognize(firstChild.textContent)"
+                style="background-color: rgb(63, 63, 63); padding: 10px; border-radius: 7px; color: white;"></div>
+        </div>
+        <br>
+        <div class="container col-9 col-lg-6 pt-5">
+            <div class="row justify-content-center" onclick="backToNames()"
+                style="padding: 10px; border-radius: 7px; color: white;">
+                <button type="button" class="btn btn-secondary"
+                    style="background-color: rgb(63, 63, 63); border: none;">Назад</button>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <footer class="page-footer fixed-bottom animate__animated animate__bounce" style="padding-top: 80px;">
+        <div class="container col-11">
+            <div class="row justify-content-center" style="cursor: pointer;">
+                <img src="{% static 'aoip_site/sadcat.png' %}" id="ftimg" data-toggle="modal" data-target="#exampleModal"
+                    width="120px" alt="">
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+<script src="{% static 'aoip_site/cringe.js' %}"></script>
+<script>
+    let happcat = '{% static 'aoip_site/hapcat.png' %}'
+    let audio = new Audio('{% static 'aoip_site/untitled.mp3' %}');
+</script>
+
+</html>
