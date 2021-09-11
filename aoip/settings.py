@@ -27,8 +27,7 @@ SECRET_KEY = 'django-insecure-@)5uxn@!0)k9n1j!7zokt)kw!p#(13u1!mrjl-u+fai#o-3ug%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['192.168.0.101',
-                 '127.0.0.1']
+ALLOWED_HOSTS = ['irissearch.herokuapp.com']
 
 
 # Application definition
