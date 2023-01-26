@@ -5,4 +5,4 @@ http://betepok.uz
 
 chrome://http://betepok.uz
 
-<a href="chrome://sdf"
+<a href="chrome://sdf">asd</a>
