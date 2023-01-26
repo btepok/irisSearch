@@ -5,4 +5,4 @@ http://betepok.uz
 
 chrome://http://betepok.uz
 
-<a href="chrome://sdf">asd</a>
+https://desktop-h32ubpr:11443 
